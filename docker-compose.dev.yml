@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: discuss
+      POSTGRES_PASSWORD: discuss
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  meilisearch:
+    image: getmeili/meilisearch:latest
+    restart: unless-stopped
+    volumes:
+      - meilisearch:/data.ms
+    ports:
+      - "7700:7700"
+
+  adminer:
+    image: dpage/pgadmin4:5.6
+    ports:
+      - 8080:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: discuss@idealjs.com
+      PGADMIN_DEFAULT_PASSWORD: discuss
+
+volumes:
+  postgres:
+  meilisearch:
