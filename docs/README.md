@@ -62,6 +62,39 @@
     - 订阅者
   - 文章
 
+## API 设计
+
+- 发布订阅
+
+  - 发布文章
+  - 发布评论
+  - 发布回复
+  - 订阅
+
+  ```typescript
+  const post = buildPost(postOptions);
+  publish(post);
+  const comment = buildComment(commentOptions);
+  publish(comment);
+  const reply = buildReply(replyOptions);
+  publish(reply);
+  function publish(): IResult;
+  function subscribe(...tags: ITag[]): IResult;
+  function unsubscribe(...tags: ITag[]): IResult;
+  ```
+
+- 权鉴
+
+  - 可权限
+  - 非权限
+  - 鉴权
+
+  ```typescript
+  const presetTag = "publish-post";
+  const has = hasPermission(presetTag, [...Tags]);
+  ```
+
+
 ## 技术栈
 
 所使用的技术栈
