@@ -14,9 +14,11 @@
     "prisma": "prisma"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^0.5.4",
     "@prisma/client": "^2.30.3",
     "meilisearch": "^0.20.0",
     "next": "11.1.2",
+    "next-auth": "^3.29.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
