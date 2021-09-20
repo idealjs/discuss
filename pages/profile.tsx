@@ -1,4 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/client";
+import { signIn, signOut,useSession } from "next-auth/client";
 import { Fragment } from "react";
 
 export default function Component() {
