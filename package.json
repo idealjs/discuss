@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "dev:deps": "docker-compose -f docker-compose.dev.yml up",
     "prisma": "prisma"
   },
@@ -26,6 +26,7 @@
     "@types/react": "17.0.19",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "prisma": "^2.30.3",
     "typescript": "4.4.2"
   }
