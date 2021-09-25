@@ -121,7 +121,7 @@
 
 "@next-auth/prisma-adapter@^0.5.4":
   version "0.5.4"
-  resolved "https://registry.nlark.com/@next-auth/prisma-adapter/download/@next-auth/prisma-adapter-0.5.4.tgz#af787a6a49ee9b9e38cedec761c9b7ab4cd99153"
+  resolved "https://registry.npmmirror.com/@next-auth/prisma-adapter/download/@next-auth/prisma-adapter-0.5.4.tgz#af787a6a49ee9b9e38cedec761c9b7ab4cd99153"
   integrity sha1-r3h6aknum544zt7HYcm3q0zZkVM=
 
 "@next-auth/prisma-legacy-adapter@0.1.2":
@@ -232,22 +232,22 @@
   resolved "https://registry.nlark.com/@panva/asn1.js/download/@panva/asn1.js-1.0.0.tgz#dd55ae7b8129e02049f009408b97c61ccf9032f6"
   integrity sha1-3VWue4Ep4CBJ8AlAi5fGHM+QMvY=
 
-"@prisma/client@^2.30.3":
-  version "2.30.3"
-  resolved "https://registry.nlark.com/@prisma/client/download/@prisma/client-2.30.3.tgz#49c1015e2cec26a44b20c62eb2fd738cb0bb043b"
-  integrity sha1-ScEBXizsJqRLIMYusv1zjLC7BDs=
+"@prisma/client@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.npmmirror.com/@prisma/client/download/@prisma/client-3.1.1.tgz#f4012631528049c22d12b212846dcf503db33cfe"
+  integrity sha1-9AEmMVKAScItErIShG3PUD2zPP4=
   dependencies:
-    "@prisma/engines-version" "2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20"
+    "@prisma/engines-version" "3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f"
 
-"@prisma/engines-version@2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20":
-  version "2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20"
-  resolved "https://registry.nlark.com/@prisma/engines-version/download/@prisma/engines-version-2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20.tgz#d5ef55c92beeba56e52bba12b703af0bfd30530d"
-  integrity sha1-1e9VySvuulblK7oStwOvC/0wUw0=
+"@prisma/engines-version@3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f":
+  version "3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f"
+  resolved "https://registry.npmmirror.com/@prisma/engines-version/download/@prisma/engines-version-3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f.tgz#f9908eb7808f2a546634398063942eaecb2474ef"
+  integrity sha1-+ZCOt4CPKlRmNDmAY5QursskdO8=
 
-"@prisma/engines@2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20":
-  version "2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20"
-  resolved "https://registry.nlark.com/@prisma/engines/download/@prisma/engines-2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20.tgz#2df768aa7c9f84acaa1f35c970417822233a9fb1"
-  integrity sha1-LfdoqnyfhKyqHzXJcEF4IiM6n7E=
+"@prisma/engines@3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f":
+  version "3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f"
+  resolved "https://registry.npmmirror.com/@prisma/engines/download/@prisma/engines-3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f.tgz#7b45708e6a42523dc9bc2214e5c62781f608dc3a"
+  integrity sha1-e0VwjmpCUj3JvCIU5cYngfYI3Do=
 
 "@rushstack/eslint-patch@^1.0.6":
   version "1.0.6"
@@ -2275,7 +2275,7 @@ natural-compare@^1.4.0:
 
 next-auth@^3.29.0:
   version "3.29.0"
-  resolved "https://registry.nlark.com/next-auth/download/next-auth-3.29.0.tgz#60ddbfc7ed8ae7d43ebb02c16dc58eebf5dcb337"
+  resolved "https://registry.npmmirror.com/next-auth/download/next-auth-3.29.0.tgz#60ddbfc7ed8ae7d43ebb02c16dc58eebf5dcb337"
   integrity sha1-YN2/x+2K59Q+uwLBbcWO6/Xcszc=
   dependencies:
     "@babel/runtime" "^7.14.0"
@@ -2743,12 +2743,12 @@ pretty-format@^3.8.0:
   resolved "https://registry.nlark.com/pretty-format/download/pretty-format-3.8.0.tgz?cache=0&sync_timestamp=1631520612366&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpretty-format%2Fdownload%2Fpretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
   integrity sha1-v77VbV6ad2ZF9LH/eqGjrE+jw4U=
 
-prisma@^2.30.3:
-  version "2.30.3"
-  resolved "https://registry.nlark.com/prisma/download/prisma-2.30.3.tgz#e4a770e1f52151e72c1c5be0aa2e75222a0135c4"
-  integrity sha1-5Kdw4fUhUecsHFvgqi51IioBNcQ=
+prisma@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.npmmirror.com/prisma/download/prisma-3.1.1.tgz#4c13c35dd3a58af9134008c8ed0fdc21a632802c"
+  integrity sha1-TBPDXdOlivkTQAjI7Q/cIaYygCw=
   dependencies:
-    "@prisma/engines" "2.30.1-2.b8c35d44de987a9691890b3ddf3e2e7effb9bf20"
+    "@prisma/engines" "3.1.0-24.c22652b7e418506fab23052d569b85d3aec4883f"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
