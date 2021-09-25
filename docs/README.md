@@ -137,7 +137,7 @@ yarn dev:deps
 推送 prisma 结构到数据库。
 
 ```shell
-yarn prisma push
+prisma db push
 ```
 
 打开 prisma 预览数据结构。
@@ -153,3 +153,6 @@ yarn dev
 ```
 
 访问 api 格式如 `http://localhost:3000/api/tags`
+
+## 可选功能
+- 邮件登录
