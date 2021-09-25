@@ -1,16 +1,21 @@
-import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
+
+import { jwtSecret } from "../../../lib/config";
 
 const prisma = new PrismaClient();
 
 export default NextAuth({
+  debug: true,
   adapter: PrismaAdapter(prisma),
-
+  session: {
+    jwt: true,
+    maxAge: 7 * 24 * 60 * 60,
+  },
   providers: [
     Providers.Credentials({
-      name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
@@ -21,9 +26,20 @@ export default NextAuth({
         return user;
       },
     }),
+    Providers.Email({
+      server: {
+        host: "",
+        port: 25,
+        auth: {
+          user: "",
+          pass: "",
+        },
+      },
+      from: "",
+    }),
   ],
-  session: {
-    jwt: true,
-    maxAge: 7 * 24 * 60 * 60,
+  jwt: {
+    secret: jwtSecret,
   },
+  callbacks: {},
 });
