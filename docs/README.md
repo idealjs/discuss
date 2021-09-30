@@ -103,7 +103,7 @@
 - nosql 数据库 mongodb
 - 关系型数据库 pg
 - 框架 next.js
-  - 状态管理 redux context
+  - 登录权鉴 next auth
   - 样式工具 tailwindcss
   - 接口 restful 风格
   - ORM prisma
