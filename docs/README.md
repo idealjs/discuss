@@ -1,6 +1,6 @@
 # @idealjs/discuss 目标是什么
 
-@idealjs/discuss 的目标是使用[现有的轮子](#技术栈)制作一个开源的、可快速搭建的、可配置的、小型的、论坛系统。
+@idealjs/discuss 的目标是使用[现有的轮子](##技术栈)制作一个开源的、可快速搭建的、可配置的、小型的、论坛系统。
 
 ## 为什么要再造一个论坛（轮子）
 
@@ -122,6 +122,8 @@
 
 > 安装 nodejs yarn docker docker-compose
 
+> [加速依赖安装](##加速依赖安装)
+
 安装依赖，生成 prisma js 文件。
 
 ```shell
@@ -156,3 +158,22 @@ yarn dev
 
 ## 可选功能
 - 邮件登录
+
+## 加速依赖安装
+- 删除 yarn.lock
+
+- 添加 .npmrc
+
+  **.npmrc**
+  ```
+  registry=https://registry.npm.taobao.org
+  disturl=https://npm.taobao.org/dist
+  sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+  phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
+  electron_mirror=https://npm.taobao.org/mirrors/electron/
+  chromedriver_cdnurl=https://npm.taobao.org/mirrors/chromedriver
+  operadriver_cdnurl=https://npm.taobao.org/mirrors/operadriver
+  selenium_cdnurl=https://npm.taobao.org/mirrors/selenium
+  node_inspector_cdnurl=https://npm.taobao.org/mirrors/node-inspector
+  fsevents_binary_host_mirror=http://npm.taobao.org/mirrors/fsevents/
+  ```
