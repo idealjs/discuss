@@ -6,7 +6,7 @@
 
 - 现有论坛的部署方式复杂，不够简单。
 
-  > 比如通常配置一个邮箱系统，需要专业人员进行部署。如果迁移还需要维护。不用邮箱，又没有办法通过后台新增用户。
+  > 比如通常配置一个邮箱系统，需要专业人员进行部署。不用邮箱，又没有办法通过后台新增用户。
 
 - 探索一种新的权限、管理系统。
 
@@ -122,6 +122,8 @@
 
 > 安装 nodejs yarn docker docker-compose
 
+> [配置开发环境变量](#开发环境变量配置)
+
 > [加速依赖安装](#加速依赖安装)
 
 安装依赖，生成 prisma js 文件。
@@ -177,3 +179,8 @@ yarn dev
   node_inspector_cdnurl=https://npm.taobao.org/mirrors/node-inspector
   fsevents_binary_host_mirror=http://npm.taobao.org/mirrors/fsevents/
   ```
+
+
+## 开发环境变量配置
+
+复制 `example.env` 并重命名为 `.env`
