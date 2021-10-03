@@ -1,11 +1,43 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import Providers, { AppProviders } from "next-auth/providers";
 
-import { jwtSecret } from "../../../lib/config";
+import {
+  emailEnabled,
+  emailHost,
+  emailPassword,
+  emailUsername,
+  jwtSecret,
+} from "../../../lib/config";
 
 const prisma = new PrismaClient();
+
+const providers: AppProviders = [
+  Providers.Credentials({
+    credentials: {
+      username: { label: "Username", type: "text" },
+      password: { label: "Password", type: "password" },
+    },
+    async authorize(credentials, req) {
+      // Add logic here to look up the user from the credentials supplied
+      const user = { name: credentials.username };
+      return user;
+    },
+  }),
+  emailEnabled &&
+    Providers.Email({
+      server: {
+        host: emailHost,
+        port: 25,
+        auth: {
+          user: emailUsername,
+          pass: emailPassword,
+        },
+      },
+      from: emailUsername,
+    }),
+].filter((p) => p != null) as AppProviders;
 
 export default NextAuth({
   debug: true,
@@ -14,30 +46,7 @@ export default NextAuth({
     jwt: true,
     maxAge: 7 * 24 * 60 * 60,
   },
-  providers: [
-    Providers.Credentials({
-      credentials: {
-        username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials, req) {
-        // Add logic here to look up the user from the credentials supplied
-        const user = { name: credentials.username };
-        return user;
-      },
-    }),
-    Providers.Email({
-      server: {
-        host: process.env.EMAIL_HOST,
-        port: 25,
-        auth: {
-          user: process.env.EMAIL_USERNAME,
-          pass: process.env.EMAIL_PASSWORD,
-        },
-      },
-      from: process.env.EMAIL_USERNAME,
-    }),
-  ],
+  providers: providers,
   jwt: {
     secret: jwtSecret,
   },
