@@ -1,5 +1,6 @@
 import { Tag } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequestQuery } from "next/dist/server/api-utils";
 import { getSession } from "next-auth/client";
 import { getToken } from "next-auth/jwt";
 
@@ -34,49 +35,72 @@ class Service<R> {
   }
 
   public async hooks(config: {
-    get?: () => PromiseLike<R[]>;
-    create?: () => PromiseLike<R>;
-    update?: () => PromiseLike<R>;
-    remove?: () => PromiseLike<R>;
+    find?: (query: NextApiRequestQuery) => PromiseLike<R[]>;
+    create?: (data: R) => PromiseLike<R>;
+    upsert?: (id: number, data: R) => PromiseLike<R>;
+    patch?: (id: number, data: Partial<R>) => PromiseLike<R>;
+    remove?: (id: number) => PromiseLike<R>;
   }) {
     if (this.permissions != null) {
     }
     console.debug("[debug]", this.req.method);
-    const { get, create, update, remove } = config;
+    const { find, create, upsert, patch, remove } = config;
     switch (this.req.method) {
       case "GET":
-        if (get != null) {
+        if (find != null) {
           if (this.permissions != null && this.permissions.get != null) {
-          } else {
             const session = await getSession({ req: this.req });
             const token = await getToken({ req: this.req, secret: jwtSecret });
-            console.log(session, token);
-            const r = get();
+            console.log("test test", session, token);
+          } else {
+            const r = find(this.req.query);
             this.res.status(200).json(r);
           }
         }
-        break;
+        return;
       case "POST":
         if (create != null) {
-          const r = create();
+          const r = create(this.req.body);
           this.res.status(200).json(r);
         }
-        break;
+        return;
       case "PUT":
-        if (update != null) {
-          const r = update();
+        if (upsert != null) {
+          const id: number = this.req.query["id"] || this.req.body["id"];
+          if (id == null) {
+            this.res.status(400);
+            return;
+          }
+          const r = upsert(id, this.req.body);
           this.res.status(200).json(r);
         }
-        break;
+        return;
+      case "PATCH": {
+        if (patch != null) {
+          const id: number = this.req.query["id"] || this.req.body["id"];
+          if (id == null) {
+            this.res.status(400);
+            return;
+          }
+          const r = patch(id, this.req.body);
+          this.res.status(200).json(r);
+        }
+        return;
+      }
       case "DELETE":
         if (remove != null) {
-          const r = remove();
+          const id: number = this.req.query["id"] || this.req.body["id"];
+          if (id == null) {
+            this.res.status(400);
+            return;
+          }
+          const r = remove(id);
           this.res.status(200).json(r);
         }
-        break;
+        return;
       default:
         this.res.status(404);
-        break;
+        return;
     }
   }
 }

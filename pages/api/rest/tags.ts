@@ -18,8 +18,35 @@ export default async function handler(
   });
 
   service.hooks({
-    get: async () => {
-      return await prisma.tag.findMany();
+    find: async (query) => {
+      return await prisma.tag.findMany({
+        where: query,
+      });
+    },
+    create: async (data) => {
+      return await prisma.tag.create({ data });
+    },
+    upsert: async (id, data) => {
+      return await prisma.tag.upsert({
+        where: { id },
+        create: data,
+        update: data,
+      });
+    },
+    patch: async (id, data) => {
+      return await prisma.tag.update({
+        where: {
+          id,
+        },
+        data,
+      });
+    },
+    remove: async (id) => {
+      return await prisma.tag.delete({
+        where: {
+          id,
+        },
+      });
     },
   });
 }
