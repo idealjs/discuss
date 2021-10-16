@@ -13,8 +13,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   service.hooks({
-    get: async () => {
-      return await prisma.user.findMany();
+    find: async (query) => {
+      return await prisma.user.findMany({
+        where: query,
+      });
     },
   });
 };
