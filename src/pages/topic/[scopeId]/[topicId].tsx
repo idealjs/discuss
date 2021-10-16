@@ -1,7 +1,7 @@
 import React from "react";
 
-const Post = () => {
+const Topic = () => {
   return <div></div>;
 };
 
-export default Post;
+export default Topic;

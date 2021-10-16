@@ -1,11 +1,10 @@
 import { PrismaClient, User } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
 
 import Service from "../../../lib/Service";
 
 const prisma = new PrismaClient();
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: any, res: any) => {
   const service = new Service<User>({ req, res });
 
   await service.setPermissions(() => {

@@ -1,13 +1,9 @@
-import { Session } from "next-auth";
-import { signOut } from "next-auth/client";
 import { useCallback } from "react";
 
-interface IProps {
-  session: Session;
-}
+interface IProps {}
 
 const Profile = (props: IProps) => {
-  const { session } = props;
+  const {} = props;
 
   const onClick = useCallback(async () => {
     await fetch("api/users");
@@ -15,8 +11,7 @@ const Profile = (props: IProps) => {
 
   return (
     <div>
-      <div>Signed in as {session.user?.name}</div>
-      <button onClick={() => signOut()}>Sign out</button>
+      <button onClick={onClick}>Sign out</button>
       <button onClick={onClick}>req</button>
     </div>
   );

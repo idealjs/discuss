@@ -1,10 +1,8 @@
-import { signIn } from "next-auth/client";
-
 const Intro = () => {
   return (
     <div>
       <div>Not signed in</div>
-      <button onClick={() => signIn()}>Sign in</button>
+      <button>Sign in</button>
     </div>
   );
 };

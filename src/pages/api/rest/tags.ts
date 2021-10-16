@@ -1,14 +1,10 @@
 import { PrismaClient, Tag } from "@prisma/client";
-import type { NextApiRequest, NextApiResponse } from "next";
 
 import Service from "../../../lib/Service";
 
 const prisma = new PrismaClient();
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Tag | null>
-) {
+export default async function handler(req: any, res: any) {
   res.status(200).json(await prisma.tag.findFirst());
 
   const service = new Service<Tag>({ req, res });
