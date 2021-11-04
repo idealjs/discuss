@@ -1,10 +1,4 @@
 import { Tag } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextApiRequestQuery } from "next/dist/server/api-utils";
-import { getSession } from "next-auth/client";
-import { getToken } from "next-auth/jwt";
-
-import { jwtSecret } from "./config";
 
 interface IPermission {
   enable?: Tag[];
@@ -23,7 +17,7 @@ class Service<R> {
   private res;
   private permissions?: Permissions;
 
-  constructor(config: { req: NextApiRequest; res: NextApiResponse }) {
+  constructor(config: { req: any; res: any }) {
     this.req = config.req;
     this.res = config.res;
   }
@@ -35,7 +29,7 @@ class Service<R> {
   }
 
   public async hooks(config: {
-    find?: (query: NextApiRequestQuery) => PromiseLike<R[]>;
+    find?: (query: any) => PromiseLike<R[]>;
     create?: (data: R) => PromiseLike<R>;
     upsert?: (id: number, data: R) => PromiseLike<R>;
     patch?: (id: number, data: Partial<R>) => PromiseLike<R>;
@@ -49,12 +43,7 @@ class Service<R> {
       case "GET":
         if (find != null) {
           if (this.permissions != null && this.permissions.get != null) {
-            const session = await getSession({ req: this.req });
-            const token = await getToken({ req: this.req, secret: jwtSecret });
-            console.log("test test", session, token);
           } else {
-            const r = find(this.req.query);
-            this.res.status(200).json(r);
           }
         }
         return;
