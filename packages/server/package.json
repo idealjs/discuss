@@ -1,0 +1,13 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "prisma generate",
+    "dev:deps": "docker-compose -f docker-compose.yml up"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.4.1",
+    "meilisearch": "^0.22.3"
+  }
+}

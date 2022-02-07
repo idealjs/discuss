@@ -1,26 +1,33 @@
 {
   "name": "discuss",
-  "version": "0.1.0",
-  "repository": "git@github.com-cqh963852:idealjs/discuss.git",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": "git@github.com:idealjs/discuss.git",
   "author": "cqh963852 <cqh963852@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "prisma generate",
-    "dev:deps": "docker-compose -f docker-compose.dev.yml up",
-    "prisma": "prisma"
-  },
-  "dependencies": {
-    "@prisma/client": "^3.1.1",
-    "meilisearch": "^0.20.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "postinstall": "lerna bootstrap"
   },
   "devDependencies": {
     "@types/node": "^16.11.6",
-    "@types/react": "17.0.19",
-    "eslint": "7.32.0",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.0.0",
+    "@typescript-eslint/parser": "^4.0.0",
+    "babel-eslint": "^10.0.0",
+    "eslint": "^7.5.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "prisma": "^3.1.1",
-    "typescript": "4.4.2"
+    "lerna": "^4.0.0",
+    "prisma": "^3.4.1",
+    "snowpack": "^3.8.8",
+    "typescript": "^4.4.4"
   }
 }
